@@ -7,14 +7,40 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ng-container [formGroup]="formGroup">
+    <ion-item>
+      <ion-label>field1<ion-text color="danger">*</ion-text> </ion-label>
+      <ion-input
+        placeholder="requreid field"
+        class="ion-text-right"
+        [required]="true"
+        formControlName="field1"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>field2</ion-label>
+      <ion-input placeholder="" class="ion-text-right"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>field3<ion-text color="danger">*</ion-text> </ion-label>
+      <ion-input
+        placeholder="requreid field"
+        class="ion-text-right"
+        [required]="true"
+        formControlName="field3"
+      ></ion-input>
+    </ion-item>
+  </ng-container>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" (click)="submit()" [disabled]="!canSubmit()"
+          >Submit</ion-button
+        >
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>
